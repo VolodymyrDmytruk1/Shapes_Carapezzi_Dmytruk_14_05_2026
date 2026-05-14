@@ -1,6 +1,5 @@
 /*! \file RightTriangle.cpp
     \brief implementation of class RightTriangle
-    \author Paolo Gastaldo
 */
 
 #include "RightTriangle.h"
