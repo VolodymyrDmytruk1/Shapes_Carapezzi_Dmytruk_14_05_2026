@@ -1,4 +1,4 @@
-/*! \file CRectangle.h
+/*! \file CRightTriangle.h
     \brief Declaration of the class Rectangle
 */
 
@@ -9,29 +9,29 @@
 
 /// @class Rectangle
 /// @brief to manage an object with the shape of a rectangle
-class RightTringle : public Shape
+class RightTriangle : public Shape
 {
 public:
 
     /// @name CONSTRUCTORS / DESTRUCTOR
     /// @{
-    RightTringle();
-    RightTringle(float px, float py, float w, float h);
-    RightTringle(const RightTringle &r);
+    RightTriangle();
+    RightTriangle(float px, float py, float w, float h);
+    RightTriangle(const RightTriangle &r);
 
-    ~Rectangle();
+    ~RightTriangle();
     /// @}
 
     /// @name OPERATORS
     /// @{
-    RightTringle& operator=(const RightTringle &r);
-    bool operator==(const RightTringle &r);
+    RightTriangle& operator=(const RightTriangle &r);
+    bool operator==(const RightTriangle &r);
     /// @}
 
     /// @name BASIC HANDLING
     /// @{
     void Init();
-    void Init(const RightTringle &r);
+    void Init(const RightTriangle &r);
     void Reset();
     /// @}
 	
