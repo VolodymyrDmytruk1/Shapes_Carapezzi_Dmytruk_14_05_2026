@@ -1,6 +1,5 @@
 /*! \file CRectangle.h
     \brief Declaration of the class Rectangle
-    \author Paolo Gastaldo
 */
 
 #ifndef RIGHTTRIANGLE_H
@@ -10,29 +9,29 @@
 
 /// @class Rectangle
 /// @brief to manage an object with the shape of a rectangle
-class Rectangle : public Shape
+class RightTringle : public Shape
 {
 public:
 
     /// @name CONSTRUCTORS / DESTRUCTOR
     /// @{
-    Rectangle();
-    Rectangle(float px, float py, float w, float h);
-    Rectangle(const Rectangle &r);
+    RightTringle();
+    RightTringle(float px, float py, float w, float h);
+    RightTringle(const RightTringle &r);
 
     ~Rectangle();
     /// @}
 
     /// @name OPERATORS
     /// @{
-    Rectangle& operator=(const Rectangle &r);
-    bool operator==(const Rectangle &r);
+    RightTringle& operator=(const RightTringle &r);
+    bool operator==(const RightTringle &r);
     /// @}
 
     /// @name BASIC HANDLING
     /// @{
     void Init();
-    void Init(const Rectangle &r);
+    void Init(const RightTringle &r);
     void Reset();
     /// @}
 	
