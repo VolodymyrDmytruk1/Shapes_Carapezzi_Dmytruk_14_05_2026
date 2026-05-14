@@ -3,8 +3,8 @@
     \author Paolo Gastaldo
 */
 
-#ifndef RECTANGLE_H
-#define RECTANGLE_H
+#ifndef RIGHTTRIANGLE_H
+#define RIGHTTRIANGLE_H
 
 #include "CShape.h"
 
