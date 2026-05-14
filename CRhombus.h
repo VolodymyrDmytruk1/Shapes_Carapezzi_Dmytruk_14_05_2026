@@ -1,4 +1,4 @@
-/*! \file CRectangle.h
+/*! \file CRombus.h
     \brief Declaration of the class Rectangle
     \author Paolo Gastaldo
 */
