@@ -4,6 +4,7 @@
 #include "CShape.h"
 #include "CRectangle.h"
 #include "CRhombus.h"
+#include "CRightTriangle.h"
 
 using namespace std;
 
@@ -31,6 +32,15 @@ int main()
     // 3. Dump polimorfico
     cout << endl << "===== DUMP POLIMORFICO =====" << endl;
 
+    for (int i = 0; i < nShapes; i++) {
+        cout << endl << "Figura [" << i << "]" << endl;
+        shapes[i]->Dump();
+    }
+    
+    shapes[0]->Scale(2);
+    shapes[1]->Scale(1);
+    shapes[2]->Scale(0.5);
+    
     for (int i = 0; i < nShapes; i++) {
         cout << endl << "Figura [" << i << "]" << endl;
         shapes[i]->Dump();
