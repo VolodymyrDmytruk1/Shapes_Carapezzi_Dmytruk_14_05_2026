@@ -116,12 +116,12 @@ float RightTriangle::GetArea()
 
 float RightTriangle::GetHypotenuse()
 {
-    float d1, d2, Hy;
+    float s1, s2, Hy;
 
-    d1 = GetHSide();
-    d2 = GetVSide();
+    s1 = GetHSide();
+    s2 = GetVSide();
 
-    Hy = sqrt(d1 * d1) + (d2 * d2);
+    Hy = sqrt(s1 * s1) + (s2 * s2);
 	
 	return Hy;
 }
@@ -130,7 +130,12 @@ float RightTriangle::GetHypotenuse()
 /// @return perimeter 
 float RightTriangle::GetPerimeter()
 {
-    return 2.0 * (width + height);
+	float s1, s2, Hy;
+
+    s1 = GetHSide();
+    s2 = GetVSide();
+	Hy = GetHypotenuse():
+    return s1+s2+Hy;
 }
 
 /* ----------------------------
@@ -145,7 +150,7 @@ void RightTriangle::Dump()
 	
 	Shape::Dump();
 	
-    
+    cout << "  Hypotenuse:          " << GetHypotenuse() << endl;
     cout << "  Figure area:         " << GetArea() << endl;
     cout << "  Figure perimeter:    " << GetPerimeter() << endl;
     cout << "  Text:                " << (text ? text : "(null)") << endl;
