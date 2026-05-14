@@ -69,7 +69,7 @@ public:
 
     void GetPosition(float &px, float &py);
     void GetDim(float &w, float &h);
-
+    
     float GetX();
     float GetY();
     float GetHeight();
