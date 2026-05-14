@@ -1,9 +1,10 @@
-/*! \file RightTriangle.cpp
+/*! \file CRightTriangle.cpp
     \brief implementation of class RightTriangle
 */
 
-#include "RightTriangle.h"
+#include "CRightTriangle.h"
 #include <iostream>
+#include <cmath>
 
 using namespace std;
 
@@ -120,7 +121,7 @@ float RightTriangle::GetHypotenuse()
     s1 = GetHSide();
     s2 = GetVSide();
 
-    Hy = sqrt(s1 * s1) + (s2 * s2);
+    Hy = sqrt((s1 * s1) + (s2 * s2));
 	
 	return Hy;
 }
@@ -133,7 +134,7 @@ float RightTriangle::GetPerimeter()
 
     s1 = GetHSide();
     s2 = GetVSide();
-	Hy = GetHypotenuse():
+	Hy = GetHypotenuse();
     return s1+s2+Hy;
 }
 
