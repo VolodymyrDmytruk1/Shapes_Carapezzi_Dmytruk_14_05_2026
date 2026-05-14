@@ -116,7 +116,14 @@ float RightTriangle::GetArea()
 
 float RightTriangle::GetHypotenuse()
 {
-    return (width * height) * 0.5;
+    float d1, d2, Hy;
+
+    d1 = GetHSide();
+    d2 = GetVSide();
+
+    Hy = sqrt(d1 * d1) + (d2 * d2);
+	
+	return Hy;
 }
 
 /// @brief computes the perimeter of the RightTriangle
