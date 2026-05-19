@@ -5,9 +5,9 @@
 
 #include "CShape.h"
 #include<iostream>
-#include<cstring>    
-#include<new>        
-#include<cmath>      
+#include<cstring>
+#include<new>
+#include<cmath>
 
 using namespace std;
 
@@ -25,17 +25,17 @@ static void SafeStrCopy(char* dest, const char* src, size_t destSize) {
 /* ----------------------------
    CONSTRUCTORS / DESTRUCTOR
    ---------------------------- */
-/// @brief default constructor 
+/// @brief default constructor
 Shape::Shape()
 {
-	
+
 	cout << "Shape - default constructor" << endl;
-	
+
 	text = nullptr;
     Init();
 }
 
-/// @brief constructor 
+/// @brief constructor
 /// @param px position in the grid (x)
 /// @param py position in the grid (y)
 /// @param w width of the bounding box
@@ -43,12 +43,12 @@ Shape::Shape()
 Shape::Shape(float px, float py, float w, float h)
 {
 	cout << "Shape - constructor" << endl;
-	
+
 	text = nullptr;
     Init();
-	
+
 	SetPosition(px,py);
-	
+
     SetWidth(w);
     SetHeight(h);
 }
@@ -58,7 +58,7 @@ Shape::Shape(float px, float py, float w, float h)
 Shape::Shape(const Shape &r)
 {
 	cout << "Shape - copy constructor" << endl;
-	
+
     text = nullptr;
 	Init(r);
 }
@@ -74,8 +74,8 @@ Shape::Shape(const Shape &r)
    OPERATORS
    ---------------------------- */
 
-/// @brief overload of operator = 
-/// @param r reference to the object on the right side of the operator 
+/// @brief overload of operator =
+/// @param r reference to the object on the right side of the operator
 /// @return reference to the object on the left side of the operator
 Shape& Shape::operator=(const Shape &r)
 {
@@ -100,9 +100,9 @@ Shape& Shape::operator=(const Shape &r)
     return *this;
 }
 
-/// @brief overload of operator == 
-/// @param r reference to the object on the right side of the operator 
-/// @return true if the two objects have the same width and the same length  
+/// @brief overload of operator ==
+/// @param r reference to the object on the right side of the operator
+/// @return true if the two objects have the same width and the same length
 bool Shape::operator==(const Shape &r)
 {
     const float eps = 1e-6f;
@@ -122,7 +122,7 @@ bool Shape::operator==(const Shape &r)
 /* ----------------------------
    BASIC HANDLING
    ---------------------------- */
-   
+
 /// @brief default initialization of the object
 void Shape::Init()
 {
@@ -141,8 +141,8 @@ void Shape::Init()
     text[0] = '\0';
 }
 
-/// @brief initialization of the object as a copy of an object 
-/// @param r reference to the object that should be copied 
+/// @brief initialization of the object as a copy of an object
+/// @param r reference to the object that should be copied
 void Shape::Init(const Shape &r)
 {
     x = r.x;
@@ -160,7 +160,7 @@ void Shape::Init(const Shape &r)
     SafeStrCopy(text, r.text, TEXTSIZE);
 }
 
-/// @brief total reset of the object  
+/// @brief total reset of the object
 void Shape::Reset()
 {
     if (text != nullptr) {
@@ -179,8 +179,8 @@ void Shape::Reset()
 
 /// @brief to rescale the shape without changing the aspect ratio
 /// @param sf scale factor (1.0 = 100%, no changes)
-   
-void Shape::Scale(float sf) 
+
+void Shape::Scale(float sf)
 {
     height = height*sf;
     width = width*sf;
@@ -198,21 +198,41 @@ void Shape::SetPosition(float px, float py)
 	if (px < 0.) {
 		WarningMessage("SetPosition: the position in the grid cannot be a negative value; clamped to 0");
 		x = 0;
-	}		
-	else 
+	}
+	else
 		x = px;
-	
+
 	if (py < 0.) {
 		WarningMessage("SetPosition: the position in the grid cannot be a negative value; clamped to 0");
 		y = 0;
-	}		
-	else 
+	}
+	else
 		y = py;
 
 }
 
+void Shape::SetX(float px)
+{
+	if (px < 0.) {
+		WarningMessage("SetX: the position in the grid cannot be a negative value; clamped to 0");
+		x = 0;
+	}
+	else
+		x = px;
+}
+
+void Shape::SetY(float py)
+{
+	if (py < 0.) {
+		WarningMessage("SetY: the position in the grid cannot be a negative value; clamped to 0");
+		y = 0;
+	}
+	else
+		y = py;
+}
+
 /// @brief set height of the object
-/// @param h height 
+/// @param h height
 void Shape::SetHeight(float h)
 {
     if (h < 0.0) {
@@ -223,7 +243,7 @@ void Shape::SetHeight(float h)
 }
 
 /// @brief set width of the object
-/// @param w width 
+/// @param w width
 void Shape::SetWidth(float w)
 {
     if (w < 0.0) {
@@ -234,7 +254,7 @@ void Shape::SetWidth(float w)
 }
 
 /// @brief set width and length of the object
-/// @param w width 
+/// @param w width
 /// @param h height
 void Shape::SetDim(float w, float h)
 {
@@ -243,7 +263,7 @@ void Shape::SetDim(float w, float h)
 }
 
 /// @brief set the text area of the object
-/// @param string the text 
+/// @param string the text
 void Shape::SetText(const char* string)
 {
     if (string == nullptr) {
@@ -273,7 +293,7 @@ void Shape::GetPosition(float &px, float &py)
 }
 
 /// @brief get width and length of the object
-/// @param w (reference to) width 
+/// @param w (reference to) width
 /// @param h (reference to) height
 void Shape::GetDim(float &w, float &h)
 {
@@ -309,16 +329,22 @@ float Shape::GetWidth()
     return width;
 }
 
+/// @brief get type of the object
+/// @return type
+int Shape::GetType() const
+{
+    return type;
+}
 
 /// @brief computes the area of the object
-/// @return area 
+/// @return area
 float Shape::GetBoundingBoxArea()
 {
     return width * height;
 }
 
-/// @brief returns text in the text area 
-/// @param string pointer to a string 
+/// @brief returns text in the text area
+/// @param string pointer to a string
 void Shape::GetText(char* string)
 {
     if (!string) return;
@@ -333,14 +359,14 @@ void Shape::GetText(char* string)
    DEBUG and SERIALIZATION
    ---------------------------- */
 
-/// @brief write an error message 
+/// @brief write an error message
 /// @param string message to be printed
 void Shape::ErrorMessage(const char *string)
 {
     std::cerr << "[Shape - ERROR] " << (string ? string : "(null)") << std::endl;
 }
 
-/// @brief write an warning message 
+/// @brief write an warning message
 /// @param string message to be printed
 void Shape::WarningMessage(const char *string)
 {
@@ -355,6 +381,7 @@ void Shape::Dump()
     std::cout << "  Width:  " << width << std::endl;
     std::cout << "  Height: " << height << std::endl;
     std::cout << "  Bounding Box Area:   " << GetBoundingBoxArea() << std::endl;
- 	
+    std::cout << "  Type: " << type << std::endl;
+
 	cout << endl;
 }

@@ -16,16 +16,18 @@ using namespace std;
 /// @brief default constructor
 Rhombus::Rhombus() : Shape()
 {
+    type = 1;
     cout << "Rhombus - default constructor" << endl;
 }
 
-/// @brief constructor 
+/// @brief constructor
 /// @param px position in the grid (x)
 /// @param py position in the grid (y)
 /// @param w width of the bounding box
 /// @param h height of the bounding box
 Rhombus::Rhombus(float px, float py, float w, float h) : Shape(px, py, w, h)
 {
+    type = 1;
     cout << "Rhombus - constructor" << endl;
 }
 
@@ -33,6 +35,7 @@ Rhombus::Rhombus(float px, float py, float w, float h) : Shape(px, py, w, h)
 /// @param r reference to the object to be copied
 Rhombus::Rhombus(const Rhombus &r) : Shape(r)
 {
+    type = 1;
     cout << "Rhombus - copy constructor" << endl;
 }
 
@@ -46,20 +49,20 @@ Rhombus::~Rhombus()
    OPERATORS
    ---------------------------- */
 
-/// @brief overload of operator = 
-/// @param r reference to the object on the right side of the operator 
+/// @brief overload of operator =
+/// @param r reference to the object on the right side of the operator
 /// @return reference to the object on the left side of the operator
 Rhombus& Rhombus::operator=(const Rhombus &r)
 {
-    if (this != &r) 
+    if (this != &r)
         Shape::operator=(r);
 
     return *this;
 }
 
-/// @brief overload of operator == 
-/// @param r reference to the object on the right side of the operator 
-/// @return true if the two bounding boxes have the same width and the same length  
+/// @brief overload of operator ==
+/// @param r reference to the object on the right side of the operator
+/// @return true if the two bounding boxes have the same width and the same length
 bool Rhombus::operator==(const Rhombus &r)
 {
     return Shape::operator==(r);
@@ -135,7 +138,7 @@ float Rhombus::GetSide()
 
     side = sqrt((d1 / 2.0) * (d1 / 2.0) +
                 (d2 / 2.0) * (d2 / 2.0));
-	
+
 	return side;
 }
 
@@ -148,10 +151,10 @@ void Rhombus::Dump()
 {
    cout << endl <<  "----------------------" << endl;
     cout << "Rhombus Dump:" << endl << endl;
-	
+
 	Shape::Dump();
-	
-    
+
+
     cout << "  Figure area:         " << GetArea() << endl;
     cout << "  Figure perimeter:    " << GetPerimeter() << endl;
     cout << "  Text:                " << (text ? text : "(null)") << endl;

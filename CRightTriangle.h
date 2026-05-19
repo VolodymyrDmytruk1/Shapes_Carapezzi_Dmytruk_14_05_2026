@@ -34,7 +34,7 @@ public:
     void Init(const RightTriangle &r);
     void Reset();
     /// @}
-	
+
 	/// @name GETTERS
     /// @{
 	float GetVSide();

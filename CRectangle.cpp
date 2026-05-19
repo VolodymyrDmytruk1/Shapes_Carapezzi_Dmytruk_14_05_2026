@@ -15,16 +15,18 @@ using namespace std;
 /// @brief default constructor
 Rectangle::Rectangle() : Shape()
 {
+    type = 0;
     cout << "Rectangle - default constructor" << endl;
 }
 
-/// @brief constructor 
+/// @brief constructor
 /// @param px position in the grid (x)
 /// @param py position in the grid (y)
 /// @param w width of the bounding box
 /// @param h height of the bounding box
 Rectangle::Rectangle(float px, float py, float w, float h) : Shape(px, py, w, h)
 {
+    type = 0;
     cout << "Rectangle - constructor" << endl;
 }
 
@@ -32,6 +34,7 @@ Rectangle::Rectangle(float px, float py, float w, float h) : Shape(px, py, w, h)
 /// @param r reference to the object to be copied
 Rectangle::Rectangle(const Rectangle &r) : Shape(r)
 {
+    type = 0;
     cout << "Rectangle - copy constructor" << endl;
 }
 
@@ -45,20 +48,20 @@ Rectangle::~Rectangle()
    OPERATORS
    ---------------------------- */
 
-/// @brief overload of operator = 
-/// @param r reference to the object on the right side of the operator 
+/// @brief overload of operator =
+/// @param r reference to the object on the right side of the operator
 /// @return reference to the object on the left side of the operator
 Rectangle& Rectangle::operator=(const Rectangle &r)
 {
-    if (this != &r) 
+    if (this != &r)
         Shape::operator=(r);
 
     return *this;
 }
 
-/// @brief overload of operator == 
-/// @param r reference to the object on the right side of the operator 
-/// @return true if the two bounding boxes have the same width and the same length  
+/// @brief overload of operator ==
+/// @param r reference to the object on the right side of the operator
+/// @return true if the two bounding boxes have the same width and the same length
 bool Rectangle::operator==(const Rectangle &r)
 {
     return Shape::operator==(r);
@@ -74,14 +77,14 @@ void Rectangle::Init()
     Shape::Init();
 }
 
-/// @brief initialization of the object as a copy of an object 
-/// @param r reference to the object that should be copied 
+/// @brief initialization of the object as a copy of an object
+/// @param r reference to the object that should be copied
 void Rectangle::Init(const Rectangle &r)
 {
     Shape::Init(r);
 }
 
-/// @brief total reset of the object  
+/// @brief total reset of the object
 void Rectangle::Reset()
 {
     Shape::Reset();
@@ -91,13 +94,13 @@ void Rectangle::Reset()
 /* ----------------------------
    GETTERS
    ---------------------------- */
-   
+
 /// @brief to get the height of the rectangle
 /// @return height
 float Rectangle::GetVSide()
 {
 	return height;
-    
+
 }
 
 /// @brief to get the width of the rectangle
@@ -108,14 +111,14 @@ float Rectangle::GetHSide()
 }
 
 /// @brief computes the area of the rectangle
-/// @return area 
+/// @return area
 float Rectangle::GetArea()
 {
     return width * height;
 }
 
 /// @brief computes the perimeter of the rectangle
-/// @return perimeter 
+/// @return perimeter
 float Rectangle::GetPerimeter()
 {
     return 2.0 * (width + height);
@@ -130,10 +133,10 @@ void Rectangle::Dump()
 {
 	cout << endl <<  "----------------------" << endl;
     cout << "Rectangle Dump:" << endl << endl;
-	
+
 	Shape::Dump();
-	
-    
+
+
     cout << "  Figure area:         " << GetArea() << endl;
     cout << "  Figure perimeter:    " << GetPerimeter() << endl;
     cout << "  Text:                " << (text ? text : "(null)") << endl;

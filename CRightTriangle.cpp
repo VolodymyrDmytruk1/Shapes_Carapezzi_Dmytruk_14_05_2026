@@ -15,16 +15,18 @@ using namespace std;
 /// @brief default constructor
 RightTriangle::RightTriangle() : Shape()
 {
+    type = 2;
     cout << "RightTriangle - default constructor" << endl;
 }
 
-/// @brief constructor 
+/// @brief constructor
 /// @param px position in the grid (x)
 /// @param py position in the grid (y)
 /// @param w width of the bounding box
 /// @param h height of the bounding box
 RightTriangle::RightTriangle(float px, float py, float w, float h) : Shape(px, py, w, h)
 {
+    type = 2;
     cout << "RightTriangle - constructor" << endl;
 }
 
@@ -32,6 +34,7 @@ RightTriangle::RightTriangle(float px, float py, float w, float h) : Shape(px, p
 /// @param r reference to the object to be copied
 RightTriangle::RightTriangle(const RightTriangle &r) : Shape(r)
 {
+    type = 2;
     cout << "RightTriangle - copy constructor" << endl;
 }
 
@@ -45,20 +48,20 @@ RightTriangle::~RightTriangle()
    OPERATORS
    ---------------------------- */
 
-/// @brief overload of operator = 
-/// @param r reference to the object on the right side of the operator 
+/// @brief overload of operator =
+/// @param r reference to the object on the right side of the operator
 /// @return reference to the object on the left side of the operator
 RightTriangle& RightTriangle::operator=(const RightTriangle &r)
 {
-    if (this != &r) 
+    if (this != &r)
         Shape::operator=(r);
 
     return *this;
 }
 
-/// @brief overload of operator == 
-/// @param r reference to the object on the right side of the operator 
-/// @return true if the two bounding boxes have the same width and the same length  
+/// @brief overload of operator ==
+/// @param r reference to the object on the right side of the operator
+/// @return true if the two bounding boxes have the same width and the same length
 bool RightTriangle::operator==(const RightTriangle &r)
 {
     return Shape::operator==(r);
@@ -74,14 +77,14 @@ void RightTriangle::Init()
     Shape::Init();
 }
 
-/// @brief initialization of the object as a copy of an object 
-/// @param r reference to the object that should be copied 
+/// @brief initialization of the object as a copy of an object
+/// @param r reference to the object that should be copied
 void RightTriangle::Init(const RightTriangle &r)
 {
     Shape::Init(r);
 }
 
-/// @brief total reset of the object  
+/// @brief total reset of the object
 void RightTriangle::Reset()
 {
     Shape::Reset();
@@ -91,13 +94,13 @@ void RightTriangle::Reset()
 /* ----------------------------
    GETTERS
    ---------------------------- */
-   
+
 /// @brief to get the height of the RightTriangle
 /// @return height
 float RightTriangle::GetVSide()
 {
 	return height;
-    
+
 }
 
 /// @brief to get the width of the RightTriangle
@@ -108,7 +111,7 @@ float RightTriangle::GetHSide()
 }
 
 /// @brief computes the area of the RightTriangle
-/// @return area 
+/// @return area
 float RightTriangle::GetArea()
 {
     return (width * height) * 0.5;
@@ -122,12 +125,12 @@ float RightTriangle::GetHypotenuse()
     s2 = GetVSide();
 
     Hy = sqrt((s1 * s1) + (s2 * s2));
-	
+
 	return Hy;
 }
 
 /// @brief computes the perimeter of the RightTriangle
-/// @return perimeter 
+/// @return perimeter
 float RightTriangle::GetPerimeter()
 {
 	float s1, s2, Hy;
@@ -147,9 +150,9 @@ void RightTriangle::Dump()
 {
 	cout << endl <<  "----------------------" << endl;
     cout << "RightTriangle Dump:" << endl << endl;
-	
+
 	Shape::Dump();
-	
+
     cout << "  Hypotenuse:          " << GetHypotenuse() << endl;
     cout << "  Figure area:         " << GetArea() << endl;
     cout << "  Figure perimeter:    " << GetPerimeter() << endl;

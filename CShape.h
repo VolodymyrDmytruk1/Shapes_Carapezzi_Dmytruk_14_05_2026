@@ -26,6 +26,9 @@ protected:
     /// optional text inside the shape
     char* text;
 
+    /// type
+    int type;
+
 public:
 
     /// @name CONSTRUCTORS / DESTRUCTOR
@@ -51,7 +54,7 @@ public:
     void Init(const Shape &r);
     void Reset();
     /// @}
-	
+
 	/// @name FOMATTING
     /// @{
 	void Scale(float sf);
@@ -61,15 +64,18 @@ public:
     /// @{
 
     void SetPosition(float px, float py);
+    void SetX(float px);
+    void SetY(float py);
     void SetHeight(float h);
     void SetWidth(float w);
     void SetDim(float w, float h);
+    int GetType() const;
 
     void SetText(const char* string);
 
     void GetPosition(float &px, float &py);
     void GetDim(float &w, float &h);
-    
+
     float GetX();
     float GetY();
     float GetHeight();
@@ -78,7 +84,7 @@ public:
     float GetBoundingBoxArea();
 
     void GetText(char* string);
-	
+
 	virtual float GetPerimeter()=0;
 	virtual float GetArea()=0;
 
